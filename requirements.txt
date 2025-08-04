@@ -1,0 +1,4 @@
+mysql-connector-python>=8.0.32
+tabulate>=0.8.10
+user-agents>=2.2.0
+python-dotenv>=0.21.0  # Optional for environment variables
