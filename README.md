@@ -1,35 +1,37 @@
-# Log Analyzer CLI
+# LOG-FILE-ANALYSIS-AND-REPORTING-SYSTEM-
+Log File Analysis and Reporting System. This Python tool parses Apache web server logs, stores them in MySQL, and generates actionable reports. 
 
-A Python tool for parsing Apache combined logs, storing them in MySQL, and generating insightful reports.
+## Features
 
-## 🚀 Features
-- Parse Apache combined/access logs
-- Store in MySQL with proper schema
-- Batch processing for large files
-- Generate reports: top IPs/pages, status codes, hourly traffic, OS breakdown
+- **Log Processing Engine**
+  - Parses Apache Common/Combined Log Format
+  - Regex-powered extraction of:
+    - IP addresses
+    - Timestamps
+    - HTTP methods
+    - URLs/paths
+    - Status codes
+    - Bytes transferred
+    - User agents
+  - Data normalization and type conversion
 
-## ⚙️ Setup
-1. Clone repo: `git clone https://github.com/yourusername/log-analyzer.git`
-2. Create virtualenv: `python -m venv venv`
-3. Install deps: `pip install -r requirements.txt`
-4. Configure MySQL in `config.ini`:
-   ```ini
-   [mysql]
-   host = localhost
-   user = root
-   password = 12345
-   database = weblogs_db
+- **Database Integration**
+  - Optimized MySQL schema
+  - Batch inserts for high-volume data
+  - Idempotent operations (handles duplicates)
+  - Separate user agent table for efficient storage
 
-## Usage
-Process logs:
-python main.py process_logs access.log [--batch_size 10000]
+- **Reporting & Analysis**
+  - Top N IP addresses
+  - Most requested URLs
+  - Status code distributions
+  - Hourly traffic patterns
+  - Error analysis by date
+  - OS/browser breakdowns
 
-## Generate reports:
-# Top 10 IPs
-python main.py generate_report top_n_ips --limit 10
+- **Performance Optimizations**
+  - Memory-efficient processing
+  - Configurable batch sizes
+  - Error handling and logging
+ort hourly_traffic
 
-# Status codes
-python main.py generate_report status_code_distribution
-
-# Hourly traffic
-python main.py generate_report hourly_traffic
